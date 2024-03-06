@@ -25,9 +25,9 @@ def hello_world():
     with app.app_context():
         # Query all records from the database_model
         all_records = database_model.query.all()
-    return render_template("index.html",all_records = all_records)
+    return render_template("view.html",all_records = all_records)
 
-@app.route("/", methods = ['POST'])
+@app.route("/add", methods = ['POST','GET'])
 def submit():
     if request.method == "POST":
         title = request.form['title']
@@ -36,7 +36,8 @@ def submit():
         todo = database_model(title,description)
         db.session.add(todo)
         db.session.commit()
-    return redirect("/")    
+        return redirect("/")    
+    return render_template("add.html")
 
 
 @app.route("/delete/<int:id>")

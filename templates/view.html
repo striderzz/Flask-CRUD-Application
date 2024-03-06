@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content%}
+<h3>All Entries</h3>
+<br>
+
+  {% if all_records|length == 0 %}
+    <h3>No Entries. Click on add entry to add some.</h3>
+  {% else %}
+    {% for x in all_records %}
+    <div class="container my-2 border border-primary" >
+      <div class="p-5 text-center bg-body-tertiary rounded-3" >
+      
+          <div class="row">
+            <div class="col-10">
+              <div class="col fs-5">id: {{x.id}}</div>
+              <div class="col fs-2">Title: {{x.title}}</div>
+              <div class="col fs-4">Description: {{x.description}}</div>
+          
+            </div>
+            <div class="col-1">
+              <a href="/update/{{ x.id }}" class="btn btn-warning" >Update</a>
+            </div>
+            <div class="col-1">
+              <a href="/delete/{{ x.id }}" class="btn btn-danger" >Delete</a>
+            </div>
+          
+        </div>
+      </div>
+      </div>
+    
+    {% endfor %}
+  {% endif%}
+  
+
+{% endblock %}
+  
