@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <H1>Update Form</H1>
+    <form method="post" action="/update/{{Item.id}}">
+      <label for="titleid">Title: </label>
+      <input type="text" placeholder="{{Item.title}}" id="titleid" name="title">
+  
+      <label for="decid">Description: </label>
+      <input type="text" placeholder="{{Item.description}}" id="decid" name="description">
+  
+      <input type="submit" value="Submit Form">
+    </form>
+</body>
+</html>
